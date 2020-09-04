@@ -18,8 +18,8 @@ public class Tcrawler {
     private static final int KB_SIZE = 1024;
     //Data structure for class implementing StatusListener streaming API
     private static LinkedBlockingQueue<Status> statuses = new LinkedBlockingQueue<Status>();
-    private static int numKB = 10 * KB_SIZE; // default data that can be overwritten
-    private static int numJSON = 3;    // default data that can be overwritten
+    private static int numKB = 1 * MB_SIZE; // default data that can be overwritten
+    private static int numJSON = 500;    // default data that can be overwritten
 
     /**
      * main runs the crawler
@@ -67,12 +67,16 @@ public class Tcrawler {
         //Generate the ConfigurationBuilder object for connection to Twitter API
         //Alex Thomas Twitter dev keys, do not share
         ConfigurationBuilder cb = new ConfigurationBuilder();
+        cb.setDebugEnabled(true)
+                .setOAuthConsumerKey(/*INSERT KEY*/)
+                .setOAuthConsumerSecret(/*INSERT KEY*/)
+                .setOAuthAccessToken(/*INSERT KEY*/)
+                .setOAuthAccessTokenSecret(/*INSERT KEY*/);
+
         /*cb.setDebugEnabled(true)
-                .setOAuthConsumerKey(INSERT KEY)
-                .setOAuthConsumerSecret(INSERT KEY)
-                .setOAuthAccessToken(INSERT KEY)
-                .setOAuthAccessTokenSecret(INSERT KEY);
-        */
+                 //add ur actual
+         */
+
 
         //Implementation of StatusListener. Twitter4J will use this to create a thread, consuming the stream.
         StatusListener listener = new StatusListener() {
@@ -177,31 +181,9 @@ public class Tcrawler {
                             //Generate a JSON object and start populating it
                             JSONObject obj = new JSONObject();
                             obj.put("Text", tweet.getText());
+                            obj.put("ID", tweet.getId());
                             obj.put("Timestamp", tweet.getCreatedAt().getTime());
-                            obj.put("Datetime", tweet.getCreatedAt().toString());
-                            obj.put("Latitude", tweet.getGeoLocation().getLatitude());
-                            obj.put("Longitude", tweet.getGeoLocation().getLongitude());
-                            obj.put("User", tweet.getUser().getScreenName());
-
-                            //Call Twitter4j API to get the URLs (if any)
-                            urlEntities = tweet.getURLEntities();
-                            if (urlEntities.length > 0) {
-                                //Try to see if the URL is valid
-                                try {
-                                    //Convert only the first URL to its expanded form (dump the Twitter URL format)
-                                    url = urlEntities[0].getExpandedURL();
-                                    obj.put("URL", url);
-                                    obj.put("URLTitle", Jsoup.connect(url).get().title());
-                                } catch (NullPointerException ex) {
-                                    ex.printStackTrace();
-                                } catch (HttpStatusException ex) {
-                                    //If jSoup fails, give a stack trace and list URL Title as a 404 error
-                                    obj.put("URLTitle", "404 Not Found"); //URL didn't connect
-                                    ex.printStackTrace();
-                                } catch (IOException ex) {
-                                    ex.printStackTrace();
-                                }
-                            }
+                            System.out.println(obj.toJSONString());
                             //Write the json string to file
                             bw.write(obj.toJSONString() + "\n");
                         }
