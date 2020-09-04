@@ -10,7 +10,7 @@ This project a search engine for crawled tweet data which includes:
 1. Search Home Page
 ![Search](https://github.com/athom031/TwitterCrawlAndSearch/blob/master/demo_img/front_end_search.png)
 2. Search Results
-![Results](https://github.com/athom031/TwitterCrawlAndSearch/blob/master/demo_img/front_end_results.png)
+![Results](https://github.com/athom031/TwitterCrawlAndSearch/blob/master/demo_img/front_end_result.png)
 
 ## Getting Started
 
