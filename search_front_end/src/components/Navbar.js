@@ -9,7 +9,7 @@ function Navbar() {
         <div className="container">
           <div className="navbar-translate">
             <a className="navbar-brand" href="">
-              Twitter Search Enginer </a>
+              Twitter Search Engine </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
               <span className="sr-only">Toggle navigation</span>
               <span className="navbar-toggler-icon"></span>
