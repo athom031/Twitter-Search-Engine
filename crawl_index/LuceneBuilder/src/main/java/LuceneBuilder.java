@@ -118,26 +118,19 @@ public class LuceneBuilder {
      * @return document version of Tweet
      */
     public Document buildDocument(JSONObject jsonObject) {
-        String url;
         Document doc = new Document();
 
-        // Add text field so that the text is what is searchable
+        //Add text field so that the text is what is searchable
         doc.add(new TextField("text",(String) jsonObject.get("Text"), Field.Store.YES));
-        doc.add(new StoredField("user",(String) jsonObject.get("User")));
-        doc.add(new StoredField("datetime",(String) jsonObject.get("Datetime")));
-        doc.add(new StoredField("latitude", (double) jsonObject.get("Latitude")));
-        doc.add(new StoredField("longitude", (double) jsonObject.get("Longitude")));
+        //Add tweet id field for unique tweet check and embedding in front end
+        doc.add(new StoredField("id", (String) ("" + jsonObject.get("ID") )));
+        //convert long data type to string (concatenate "" with long)
 
-        if ((url = (String) jsonObject.get("URL")) != null) {
-            doc.add(new StoredField("url", url));
-        }
         // Give timestamp field to boost on most recent tweets
         doc.add(new NumericDocValuesField("timestamp", (long) jsonObject.get("Timestamp")));
 
-        // Add as numeric field
+        // Add as numeric field (twitter 4j suggestion)
         doc.add(new LongPoint("time", (long) jsonObject.get("Timestamp")));
-        doc.add(new DoublePoint("lat", (double) jsonObject.get("Latitude")));
-        doc.add(new DoublePoint("long", (double) jsonObject.get("Longitude")));
 
         return doc;
     }  //buildDocument()
@@ -223,13 +216,13 @@ public class LuceneBuilder {
             }
         }
         else{
-            //IF ALREADY DEFINED INDEX
+            /*IF ALREADY DEFINED INDEX
             System.out.println("Default run. Generating Lucene index in directory "+ "/index" +" using .json files located in directory "+ "/Crawler" +".");
             luceneIndex = new LuceneBuilder();
-
+            */
 
             // IF INDEX DIR IS EMPTY
-            /*
+
             try {
                 System.out.println("Default run. Generating Lucene index in directory "+ "/index" +" using .json files located in directory "+ "/Crawler" +".");
                 luceneIndex = new LuceneBuilder();
@@ -238,7 +231,7 @@ public class LuceneBuilder {
                 ex.printStackTrace();
                 System.out.println("Invalid input. Check the file structure to make sure Lucene index can use directory "+ INDEX_DIR +" and .json files are located in directory "+ JSON_DIR +".");
                 System.exit(-1);
-            } */
+            }
         }
 
         luceneIndex.buildSearcher();
@@ -256,25 +249,24 @@ public class LuceneBuilder {
                 System.out.println("No farmed Tweets match that search term.");
                 System.out.println();
             }
-            Set<String> user_hash = new HashSet<String>();
-            //System.out.println(user_hash.size());
-            int count_bef = user_hash.size();
+
+            Set<String> id_hash = new HashSet<String>();
+            //make sure we don't get the same id everytime
+
+            int count_bef = id_hash.size();
 
             for (ScoreDoc scoreDoc : hits.scoreDocs) {
-                if(user_hash.size() >= 10) { break; }
+                if(id_hash.size() >= 10) { break; }
+                //if we have collected 10 unique relevant tweets exit loop
                 Document doc = luceneIndex.searcher.doc(scoreDoc.doc);
 
-                count_bef = user_hash.size();
-                user_hash.add(doc.get("user"));
-                if(user_hash.size() > count_bef) {
+                count_bef = id_hash.size(); // count before attempt add
+
+                id_hash.add(doc.get("id"));
+                if(id_hash.size() > count_bef) { //(size has incremented) -> if the set has another unique element
                     System.out.println(doc.get("text"));
-                    System.out.println("@" + doc.get("user"));
-                    System.out.println(doc.get("datetime"));
-                    System.out.println("Latitude: " + doc.get("latitude"));
-                    System.out.println("Longitude: " + doc.get("longitude"));
-                    if (doc.get("url") != null) {
-                        System.out.println(doc.get("url"));
-                    }
+                    System.out.println(doc.get("id"));
+
                     System.out.println();
                 }
             }
