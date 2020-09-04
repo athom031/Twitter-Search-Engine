@@ -30,9 +30,9 @@ import static java.util.Objects.requireNonNull;
 
 public class LuceneBuilder {
     //Destination dir for Lucene index files
-    static final String INDEX_DIR = "../complete/index";
+    static final String INDEX_DIR = "./index";
     //Location dir of json object files
-    static final String JSON_DIR = "../complete/Crawler";
+    static final String JSON_DIR = "./Crawler";
 
     //Variables accessed through class instance
     String indexDir;
@@ -121,26 +121,19 @@ public class LuceneBuilder {
      * @return document version of Tweet
      */
     public Document buildDocument(JSONObject jsonObject) {
-        String url;
         Document doc = new Document();
 
-        // Add text field so that the text is what is searchable
+        //Add text field so that the text is what is searchable
         doc.add(new TextField("text",(String) jsonObject.get("Text"), Field.Store.YES));
-        doc.add(new StoredField("user",(String) jsonObject.get("User")));
-        doc.add(new StoredField("datetime",(String) jsonObject.get("Datetime")));
-        doc.add(new StoredField("latitude", (double) jsonObject.get("Latitude")));
-        doc.add(new StoredField("longitude", (double) jsonObject.get("Longitude")));
+        //Add tweet id field for unique tweet check and embedding in front end
+        doc.add(new StoredField("id", (String) ("" + jsonObject.get("ID") )));
+        //convert long data type to string (concatenate "" with long)
 
-        if ((url = (String) jsonObject.get("URL")) != null) {
-            doc.add(new StoredField("url", url));
-        }
         // Give timestamp field to boost on most recent tweets
         doc.add(new NumericDocValuesField("timestamp", (long) jsonObject.get("Timestamp")));
 
-        // Add as numeric field
+        // Add as numeric field (twitter 4j suggestion)
         doc.add(new LongPoint("time", (long) jsonObject.get("Timestamp")));
-        doc.add(new DoublePoint("lat", (double) jsonObject.get("Latitude")));
-        doc.add(new DoublePoint("long", (double) jsonObject.get("Longitude")));
 
         return doc;
     }  //buildDocument()
@@ -207,6 +200,7 @@ public class LuceneBuilder {
         indexWriter.close();
     } //buildIndex()
 
+    /*class data get functions*/
     public String getIndexDir() { return this.indexDir; }
     public String getJSONDir() { return this.JSONdir; }
     public IndexWriter getIndexWriter() { return this.indexWriter; }
