@@ -31,6 +31,7 @@ npm init
 #### Crawler
 1) Update [TCrawler.java](https://github.com/athom031/TwitterCrawlAndSearch/blob/master/crawl_index/Crawler/src/main/java/Tcrawler.java) with [Twitter Dev](https://developer.twitter.com/en/apply-for-access).
 2) Run the crawler to create JSON tweet data. <br/>
+
 Optional Parameter Set
 * numJSON - number of desired json files
 * numKB - size of each json file
