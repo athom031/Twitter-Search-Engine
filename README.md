@@ -39,6 +39,7 @@ Optional Parameter Set
 
 #### Lucene Builder
 Run the luceneBuilder to create Lucene Index. (should clear index directory first) <br/>
+
 Optional Parameter Set: 
 * indexDir - where the index should be created
 * jsonDir  - where lies the json tweet data
