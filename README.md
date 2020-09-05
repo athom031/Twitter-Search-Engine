@@ -30,29 +30,30 @@ npm init
 
 #### Crawler
 1) Update [TCrawler.java](https://github.com/athom031/TwitterCrawlAndSearch/blob/master/crawl_index/Crawler/src/main/java/Tcrawler.java) with [Twitter Dev](https://developer.twitter.com/en/apply-for-access).
-2) Run the crawler to create JSON tweet data.
-* optional @param: numJSON - number of desired json files
-* optional @param: numKB - size of each json file
-* optional @param: jtype - "MB" or "KB"
+2) Run the crawler to create JSON tweet data. <br/>
+Optional Parameter Set
+* numJSON - number of desired json files
+* numKB - size of each json file
+* jtype - "MB" or "KB"
 
 #### Lucene Builder
-Run the luceneBuilder to create Lucene Index. (should clear index directory first)
-* optional @param: indexDir - where the index should be created
-* optional @param: jsonDir  - where lies the json tweet data
+Run the luceneBuilder to create Lucene Index. (should clear index directory first) <br/>
+Optional Parameter Set: 
+* indexDir - where the index should be created
+* jsonDir  - where lies the json tweet data
 
 #### Spring Back End
 [Spring cors framework](https://spring.io/guides/gs/rest-service-cors/) used to allow cross origin requests. Import with pom.xml like the other java classes. But run with:
 ```
 ./mvnw spring-boot:run
 ```
-- PORT 8080 => example get request => http://localhost:8080/search?query=happiness
+PORT 8080 => example get request => http://localhost:8080/search?query=happiness
 
 #### React Front End
-After downloading the saved dependencies:
+After downloading the saved dependencies: (on PORT 3000)
 ```
 npm start
 ```
-- PORT 3000 
 
 ## Authors
 
@@ -69,4 +70,4 @@ npm start
 * [React Embed Tweet](https://www.npmjs.com/package/react-twitter-embed)
 
 ## Inspiration: 
-CS 172: Information Retrieval Course Projec
+CS 172: Information Retrieval Course Project
