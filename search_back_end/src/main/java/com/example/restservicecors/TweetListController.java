@@ -34,7 +34,7 @@ import static java.util.Objects.requireNonNull;
 
 @RestController
 public class TweetListController {
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:4200"})
 	@GetMapping("/search")
 	public TweetList search(@RequestParam(value = "query", defaultValue = "") String query) {
 		TweetList resultTweets = new TweetList();

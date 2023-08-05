@@ -19,6 +19,7 @@ public class RestServiceCorsApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/search").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/search").allowedOrigins("http://localhost:4200")
 			}
 		};
 	}*/
