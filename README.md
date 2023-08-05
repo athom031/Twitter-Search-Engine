@@ -26,6 +26,7 @@ Open java files with maven (importing the pom.xml files).<br/>
 For the angular front end download saved dependencies
 ```
 npm init
+npm install
 ```
 
 #### Crawler
