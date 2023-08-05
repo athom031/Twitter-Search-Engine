@@ -1,0 +1,7 @@
+<form (ngSubmit)="submitForm()" #myForm="ngForm">
+    <div>
+        <label>Query:</label>
+        <input type="text" id="query" name =query [(ngModel)]="formData.query" required>
+    </div>
+</form>
+  
