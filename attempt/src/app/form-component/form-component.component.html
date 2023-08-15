@@ -5,3 +5,10 @@
     </div>
 </form>
   
+<div *ngIf="tweetIDs.length > 0">
+    <app-embedded-tweet [tweetIDs]="tweetIDs"></app-embedded-tweet>
+</div>
+<div *ngIf="tweetIDs.length === 0">
+<p>No tweet IDs available.</p>
+</div>
+  
