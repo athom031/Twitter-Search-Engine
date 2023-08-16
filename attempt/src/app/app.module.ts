@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FormComponentComponent } from './form-component/form-component.component';
-import { FormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 import { EmbeddedTweetComponent } from './embedded-tweet/embedded-tweet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponentComponent,
-    EmbeddedTweetComponent
+    EmbeddedTweetComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
@@ -24,4 +27,3 @@ import { EmbeddedTweetComponent } from './embedded-tweet/embedded-tweet.componen
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-

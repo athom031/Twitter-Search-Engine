@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'attempt';
+  searchQuery: string = '';
+  title = 'Twitter Search Engine';
+  
+  getSearchQuery(query: string) {
+    this.searchQuery = query;
+  }
 }
+

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 interface Tweet {
@@ -12,6 +12,8 @@ interface Tweet {
   styleUrls: ['./form-component.component.css'],
 })
 export class FormComponentComponent {
+  @Output() showTweets = new EventEmitter<boolean>();
+  
   formData: any = {}; // Object to hold form data
   tweetIDs: string[] = []; // Object to hold array of up to 10 tweet IDs (to later embed)
   
@@ -28,6 +30,8 @@ export class FormComponentComponent {
         this.tweetIDs = tweets.map(tweet => tweet.id);
         console.log(this.tweetIDs);
       });
+    
+    this.showTweets.emit(true);
 
     
     this.resetForm();
