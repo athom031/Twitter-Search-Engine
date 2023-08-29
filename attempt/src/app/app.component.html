@@ -205,11 +205,72 @@
 </div>
  -->
 
-<app-search-bar (searchSubmit)="getSearchQuery($event)"></app-search-bar>
-
-<!-- Display the search query -->
-<div *ngIf="searchQuery">
-  You searched for: {{ searchQuery }}
+<!-- 
+  Banner 
+    stays on top of screen even as user scrolls
+-->
+<div class="banner">
+  <button (click)="refreshPage()">Twitter Search Engine</button>
+  <a href="https://github.com/athom031/Twitter-Search-Engine" target="_blank" rel="noopener" style="float: right;">
+    GitHub Repo
+  </a>
 </div>
+
+<!-- 
+  Search Home 
+    when no search query is currently submitted
+-->
+<div *ngIf="!searchQuery; else search">
+  <div class="search-home-container">
+    <div class="search-home-title">
+      <p>
+        Your Search Starts With Us.
+      </p>
+    </div>
+
+    <div class="search-home-caption">
+      <p>
+        Enter your query and find the most relevant tweet
+      </p>
+    </div> 
+
+    <div class="search-home-query">
+      <p>
+        Query:
+      </p>
+    </div>
+
+    <div class="search-home-bar">
+      <app-search-bar (searchSubmit)="getSearchQuery($event)"></app-search-bar>
+    </div>
+
+  </div>
+</div>
+
+<!--
+  Search Results
+    returned relevant tweets based on search query
+-->
+<ng-template #search>
+  <div class="search-results">
+    <div class="search-results-query">
+      Query: {{ searchQuery }}
+    </div>
+
+    <div class="search-results-tweets">
+      Tweets to be added here
+    </div>
+
+    <div class="search-results-banner">
+      Tweets From Sea to Shining Sea
+      About the Fall of 2020
+      For You and Me.
+    </div>
+
+    <div class="search-results-refresh">
+      Search Again (button to be added)
+    </div>
+  </div>
+</ng-template>
 
 <router-outlet></router-outlet>

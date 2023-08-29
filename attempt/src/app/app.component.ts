@@ -12,5 +12,10 @@ export class AppComponent {
   getSearchQuery(query: string) {
     this.searchQuery = query;
   }
+
+  refreshPage() {
+    // Use JavaScript's window.location to reload the page
+    window.location.reload();
+  }
 }
 
