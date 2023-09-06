@@ -9,7 +9,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
-import { EmbeddedTweetComponent } from './embedded-tweet/embedded-tweet.component';
+import { EmbeddedTweetComponent } from './embedded-tweets/embedded-tweets.component';
 
 @NgModule({
   declarations: [

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmbeddedTweetComponent } from './embedded-tweet.component';
+import { EmbeddedTweetComponent } from './embedded-tweets.component';
 
 describe('EmbeddedTweetComponent', () => {
   let component: EmbeddedTweetComponent;
