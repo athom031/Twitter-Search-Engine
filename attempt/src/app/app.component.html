@@ -1,276 +1,71 @@
-<!-- <style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  .spacer {
-    flex: 1;
-  }
-
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-  }
-
-  .toolbar img {
-    margin: 0 16px;
-  }
-
-  .toolbar #github-logo {
-    height: 40px;
-    margin: 0 8px;
-  }
-
-
-  .toolbar #github-logo:hover {
-    opacity: 0.8;
-  }
-
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  svg.material-icons {
-    height: 24px;
-    width: auto;
-  }
-
-  svg.material-icons:not(:last-child) {
-    margin-right: 8px;
-  }
-
-  .card svg.material-icons path {
-    fill: #888;
-  }
-
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
-  }
-  
-  .card {
-    all: unset;
-    border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
-    height: 40px;
-    width: 200px;
-    margin: 0 8px 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease-in-out;
-    line-height: 24px;
-  }
-
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  .card.highlight-card {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
-
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
-  
-  a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #125699;
-  }
-
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-    .card-container > *:not(.circle-link) ,
-
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
-
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
-
-  } 
-</style> -->
-
-<!-- Toolbar -->
-<!-- <div class="toolbar" role="banner">
-  <img
-    width="40"
-    alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-  />
-  <span>Welcome</span>
-    <div class="spacer"></div>
-    <a aria-label="Github Repo" target="_blank" rel="noopener" href="https://github.com/athom031/Twitter-Search-Engine" title="Github">
-      <svg id="github-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-        <rect width="400" height="400" fill="none"/>
-        <path d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23" fill="#fff"/>
-      </svg>
-
-      <svg id="github-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 400 400">
-        <rect width="400" height="400" fill="none"/>
-        <path d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="#fff"/>
-      </svg>
-
+<div class="webpage">
+  <!-- 
+    Banner 
+      stays on top of screen even as user scrolls
+  -->
+  <div class="banner">
+    <button (click)="refreshPage()">Twitter Search Engine</button>
+    <a href="https://github.com/athom031/Twitter-Search-Engine" target="_blank" rel="noopener" style="float: right;">
+      GitHub Repo
     </a>
-</div>
-
-<div class="content" role="main">
-
-  <app-form-component></app-form-component>
-  
-  <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
-    <title>Gray Clouds Background</title>
-    <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
-  </svg>
-
-</div>
- -->
-
-
-<!-- <div *ngIf="tweetIdArray.length ===  0">
-  Content for the form, e.g., the search form
-  <app-form-component (showTweets)=
-  "hasTweetsToShow = $event"></app-form-component> 
-</div>
-
-<div *ngIf="tweetIdArray.length > 0">
-  <p>there are tweets to show</p>
-  Content for the search results, e.g., embedded tweets 
-   Add your tweet component or HTML code here 
-</div>
- -->
-
-<!-- 
-  Banner 
-    stays on top of screen even as user scrolls
--->
-<div class="banner">
-  <button (click)="refreshPage()">Twitter Search Engine</button>
-  <a href="https://github.com/athom031/Twitter-Search-Engine" target="_blank" rel="noopener" style="float: right;">
-    GitHub Repo
-  </a>
-</div>
-
-<!-- 
-  Search Home 
-    when no search query is currently submitted
--->
-<div *ngIf="!searchQuery; else search">
-  <div class="search-home-container">
-    <div class="search-home-title">
-      <p>
-        Your Search Starts With Us.
-      </p>
-    </div>
-
-    <div class="search-home-caption">
-      <p>
-        Enter your query and find the most relevant tweet
-      </p>
-    </div> 
-
-    <div class="search-home-query">
-      <p>
-        Query:
-      </p>
-    </div>
-
-    <div class="search-home-bar">
-      <app-search-bar (searchSubmit)="getSearchQuery($event)"></app-search-bar>
-    </div>
-
   </div>
-</div>
 
-<!--
-  Search Results
-    returned relevant tweets based on search query
--->
-<ng-template #search>
-  <div class="search-results">
-    <div class="search-results-query">
-      Query: {{ searchQuery }}
-    </div>
+  <!-- 
+    Search Home 
+      when no search query is currently submitted
+  -->
+  <div *ngIf="!searchQuery; else search">
+    <div class="search-home-container">
+      <div class="search-home-title">
+        <p>
+          Your Search Starts With Us.
+        </p>
+      </div>
 
-    <div class="search-results-tweets">
-      Tweets to be added here
-    </div>
+      <div class="search-home-caption">
+        <p>
+          Enter your query and find the most relevant tweet
+        </p>
+      </div> 
 
-    <div class="search-results-banner">
-      Tweets From Sea to Shining Sea
-      About the Fall of 2020
-      For You and Me.
-    </div>
+      <div class="search-home-query">
+        <p>
+          Query:
+        </p>
+      </div>
 
-    <div class="search-results-refresh">
-      Search Again (button to be added)
+      <div class="search-home-bar">
+        <app-search-bar (searchSubmit)="getSearchQuery($event)"></app-search-bar>
+      </div>
+
     </div>
   </div>
-</ng-template>
 
-<router-outlet></router-outlet>
+  <!--
+    Search Results
+      returned relevant tweets based on search query
+  -->
+  <ng-template #search>
+    <div class="search-results">
+      <div class="search-results-query">
+        Query: {{ searchQuery }}
+      </div>
+
+      <div class="search-results-tweets">
+        Tweets to be added here
+      </div>
+
+      <div class="search-results-banner">
+        Tweets From Sea to Shining Sea
+        About the Fall of 2020
+        For You and Me.
+      </div>
+
+      <div class="search-results-refresh">
+        <button (click)="refreshPage()">Search Again</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <router-outlet></router-outlet>
+</div>

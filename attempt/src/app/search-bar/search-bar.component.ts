@@ -13,9 +13,9 @@ export class SearchBarComponent {
   @Output() searchSubmit: EventEmitter<string> = new EventEmitter<string>();
 
   onSearchSubmit() {
-    // Emit the formatted search query
-    console.log(`string submitted: ${this.searchQuery}`);
-    this.searchSubmit.emit(this.searchQuery.trim().toLowerCase().replace(/\s+/g, '+'));
+    // After submitting form, emit search query to App Component
+    console.log(`Unformatted Query submitted: '${this.searchQuery}'`);
+    this.searchSubmit.emit(this.searchQuery);
   }
 
 }
