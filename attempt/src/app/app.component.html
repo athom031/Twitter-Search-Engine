@@ -35,7 +35,7 @@
       </div>
 
       <div class="search-home-bar">
-        <app-search-bar (searchSubmit)="getSearchQuery($event)"></app-search-bar>
+        <app-search-bar (searchSubmit)="getTweetIds($event)"></app-search-bar>
       </div>
 
     </div>
@@ -46,25 +46,46 @@
       returned relevant tweets based on search query
   -->
   <ng-template #search>
-    <div class="search-results">
-      <div class="search-results-query">
-        Query: {{ searchQuery }}
-      </div>
+    <div *ngIf="tweetIds.length>0; else no_results">
+      <div class="search-results">
 
-      <div class="search-results-tweets">
-        <app-embedded-tweets [formattedSearchQuery]="formattedSearchQuery"></app-embedded-tweets>
-      </div>
-
-      <div class="search-results-banner">
-        Tweets From Sea to Shining Sea
-        About the Fall of 2020
-        For You and Me.
-      </div>
-
-      <div class="search-results-refresh">
-        <button (click)="refreshPage()">Search Again</button>
+        <div class="search-results-query">
+          Query: {{ searchQuery }}
+        </div>
+        
+        <div class="search-results-tweets">
+          <div *ngFor="let tweetId of tweetIds">
+            <app-tweet-embed [tweetId]="tweetId"></app-tweet-embed>
+          </div>
+        </div>
+  
+        <div class="search-results-banner">
+          Tweets From Sea to Shining Sea
+          About the Fall of 2020
+          For You and Me.
+        </div>
+  
       </div>
     </div>
+
+    <ng-template #no_results>
+      <div class="no-result-title">
+        Curious...
+      </div>
+      <div class="no-result-body">
+        It seems out of 4.5 million tweets, your search query:
+        {{ searchQuery }} 
+        does not match any in our collection.
+        Though this number may seem daunting, the Fall of 2020 was a trying time.
+        Keeping this in mind, try a more relevant search.
+      </div>
+    </ng-template>
+
+
+    <div class="search-results-refresh">
+      <button (click)="refreshPage()">Search Again</button>
+    </div>
+    
   </ng-template>
 
   <router-outlet></router-outlet>

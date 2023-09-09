@@ -9,13 +9,15 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
-import { EmbeddedTweetComponent } from './embedded-tweets/embedded-tweets.component';
+import { TweetEmbedComponent } from './tweet-embed/tweet-embed.component';
+// import { EmbeddedTweetComponent } from './embedded-tweets/embedded-tweets.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmbeddedTweetComponent,
-    SearchBarComponent
+    // EmbeddedTweetComponent,
+    SearchBarComponent,
+    TweetEmbedComponent
   ],
   imports: [
     BrowserModule,
