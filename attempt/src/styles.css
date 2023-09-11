@@ -1,1 +1,25 @@
+
 /* You can add global styles to this file, and also import other style files */
+.background-image { 
+    margin: 0;
+    padding: 0;  
+    background-image: url('assets/profile_city.jpg'); /* Adjust the path as needed */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    position:relative;
+    height: 100%;
+}
+
+.background-shadow {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 8em;
+    padding-bottom: 9em;
+    padding-left:5em;
+    color: white;
+    font-size: 2em;
+    z-index:-1;
+}
+
+
