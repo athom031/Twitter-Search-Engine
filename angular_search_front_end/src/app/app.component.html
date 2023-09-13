@@ -52,28 +52,34 @@
       returned relevant tweets based on search query
   -->
   <ng-template #search>
-    <div *ngIf="tweetIds.length>0; else no_results">
-      <div class="search-results">
-
-        <div class="search-results-query">
-          Query: {{ searchQuery }}
+    <div *ngIf="tweetIds.length > 0; else no_results" class="search-results">
+      <div class="fixed-column">
+        <div class="search-results-banner">
+          <i>
+            Tweets From Sea to Shining Sea<br/>
+            About the Fall of 2020<br/>
+            For You and Me.<br/><br/>
+          </i>
         </div>
-        
-        <div class="search-results-tweets">
-          <div *ngFor="let tweetId of tweetIds">
-            <app-tweet-embed [tweetId]="tweetId"></app-tweet-embed>
+        <div class="search-results-query">
+          Results for: <i>{{ searchQuery }}</i><br/><br/>
+        </div>
+        <div class="search-results-search-again">
+          <button class="btn" (click)="refreshPage()">Search Again</button>
+        </div>
+      </div>
+    
+      <div class="scrollable-column">
+        <div class="scrollable-content">
+          <div class="search-results-tweets">
+            <div *ngFor="let tweetId of tweetIds">
+              <app-tweet-embed [tweetId]="tweetId"></app-tweet-embed>
+            </div>
           </div>
         </div>
-  
-        <div class="search-results-banner">
-          Tweets From Sea to Shining Sea
-          About the Fall of 2020
-          For You and Me.
-        </div>
-  
       </div>
-    </div>
-
+    </div>    
+    
     <ng-template #no_results>
       <div class="no-results-container">
         <div class="no-results-wrapper">

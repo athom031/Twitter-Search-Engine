@@ -9,13 +9,8 @@ function Navbar() {
         <div className="container">
           <div className="navbar-translate">
             <a className="navbar-brand" href="">
-              Twitter Search Engine </a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="sr-only">Toggle navigation</span>
-              <span className="navbar-toggler-icon"></span>
-              <span className="navbar-toggler-icon"></span>
-              <span className="navbar-toggler-icon"></span>
-            </button>
+              Twitter Search Engine 
+            </a>
           </div>
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav ml-auto">
