@@ -1,0 +1,37 @@
+/* Apply styles to the entire form when not focused */
+form {
+    color: white;
+    background-color: white; /* White background when not focused */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px;
+    margin-bottom: 16px;
+    transition: background-color 0.3s; /* Add a smooth transition effect */
+  }
+  
+  /* Apply styles to the input element inside the form */
+  input {
+    color: white;
+    background-color: transparent; /* Transparent background */
+    border: none;
+    font-size: 18px;
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    transition: background-color 0.3s; /* Add a smooth transition effect */
+  }
+  
+  /* Apply styles to the input when it is focused */
+  input:focus {
+    background-color: transparent; /* Transparent background when focused */
+    outline: none; /* Remove the default focus outline */
+  }
+  
+  /* Apply styles to the label element */
+  label {
+    padding-right: 20px;
+  }
+  
+  /* Apply styles to the entire form when it is focused */
+  form:focus-within {
+    background-color: transparent; /* Transparent background when the form or its descendants are focused */
+  }
+  

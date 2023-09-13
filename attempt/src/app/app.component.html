@@ -11,6 +11,7 @@
       <a href="https://github.com/athom031/Twitter-Search-Engine" target="_blank" rel="noopener" style="float: right;">
         GitHub Repo
       </a>
+      <img src="../assets/github_logo.png" alt="GitHub Logo" class="github-logo">
     </div>
   </div>
 
@@ -18,27 +19,28 @@
     Search Home 
       when no search query is currently submitted
   -->
-  <div *ngIf="!searchQuery; else search">
+  <div *ngIf="!gotResult; else search">
     <div class="search-home-container">
       <div class="search-home-title">
         <p>
-          Your Search Starts With Us.
+          Your Search Starts
+          <br/> 
+          With Us.
+          <br/>
         </p>
       </div>
 
       <div class="search-home-caption">
+        <br/>
         <p>
-          Enter your query and find the most relevant tweet
+          Enter your search for any tweet below <br/><br/>
         </p>
       </div> 
 
-      <div class="search-home-query">
+      <div class="search-home-bar">
         <p>
           Query:
         </p>
-      </div>
-
-      <div class="search-home-bar">
         <app-search-bar (searchSubmit)="getTweetIds($event)"></app-search-bar>
       </div>
 
@@ -73,22 +75,30 @@
     </div>
 
     <ng-template #no_results>
-      <div class="no-result-title">
-        Curious...
-      </div>
-      <div class="no-result-body">
-        It seems out of 4.5 million tweets, your search query:
-        {{ searchQuery }} 
-        does not match any in our collection.
-        Though this number may seem daunting, the Fall of 2020 was a trying time.
-        Keeping this in mind, try a more relevant search.
+      <div class="no-results-container">
+        <div class="no-results-wrapper">
+          <div class="no-results-title">
+            Curious...
+          </div>
+          <div class="no-results-body">
+            It seems out of 4.5 million tweets, your search query:<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>{{ searchQuery }}</i><br/>
+            does not match any in our collection.<br/><br/>
+            Though this number may seem daunting,<br/>
+            &nbsp;&nbsp;&nbsp;the Fall of 2020 was a trying time.<br/>
+            Keeping this in mind, <br/>
+            &nbsp;&nbsp;&nbsp;try a more relevant search.<br/><br/>
+          </div>
+        </div>
+
+        <div class="search-results-refresh">
+          <button class="btn" (click)="refreshPage()">Search Again</button>
+        </div>
       </div>
     </ng-template>
 
 
-    <div class="search-results-refresh">
-      <button (click)="refreshPage()">Search Again</button>
-    </div>
+    
     
   </ng-template>
 

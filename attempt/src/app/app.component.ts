@@ -15,6 +15,7 @@ export class AppComponent {
   searchQuery: string = '';
   formattedSearchQuery: string = '';
   tweetIds: string[] = [];
+  gotResult: boolean = false;
 
   title = 'Twitter Search Engine';
 
@@ -36,6 +37,7 @@ export class AppComponent {
         `Tweet Ids: ${this.tweetIds.join('\n')}` : 
         'No Tweets Returned'
     );
+    this.gotResult = true;
   }
   
   getTweetIds(unformattedQuery: string) {
