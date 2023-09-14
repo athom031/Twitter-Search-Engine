@@ -4,7 +4,7 @@ This project a search engine for crawled tweet data which includes:
 1) Twitter crawler to save tweets as JSON data.
 2) Lucene Index builder that makes query searching efficient.
 3) Spring back end framework to link query results to front end. 
-4) Angular front end to display relevant tweets with twitter embed component.
+4) Angular OR React front end to display relevant tweets with twitter embed component.
 
 ## Demo Images
 1. Search Home Page
@@ -53,8 +53,16 @@ Optional Parameter Set:
 PORT 8080 => example get request => http://localhost:8080/search?query=happiness
 
 #### Angular Front End
-After downloading the saved dependencies: (on PORT 3000)
+After navigating to correct folder: (on PORT: 4200)
 ```
+npm install 
+ng serve
+```
+
+#### React Front End
+After navigating to correct folder: (on PORT: 3000)
+```
+npm install
 npm start
 ```
 
